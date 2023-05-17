@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id     Int      @id @default(autoincrement()) //String default 'uuid'
+  name   String
+  age    Int?
+  email  String   @unique
+  city   String
+  avatar String?
+  status Boolean? @default(false)
+  pets   Pet[]
+}
+
+model Pet {
+  id      Int      @id @default(autoincrement())
+  name    String
+  type    String?
+  image   String?
+  logo    String?
+  status  Boolean? @default(false)
+  owner   User?    @relation(fields: [ownerId], references: [id])
+  ownerId Int?
+}
