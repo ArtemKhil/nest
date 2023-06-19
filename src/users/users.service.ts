@@ -13,6 +13,7 @@ export class UsersService {
         name: userData.name,
         age: userData.age,
         email: userData.email,
+        password: userData.password,
         city: userData.city,
         avatar: userData.avatar,
         status: userData.status,
@@ -37,6 +38,11 @@ export class UsersService {
       // include: {
       //   pets: true,
       // },
+    });
+  }
+  async findByUsername(userEmail: string) {
+    return this.prismaService.user.findFirst({
+      where: { email: userEmail },
     });
   }
 }

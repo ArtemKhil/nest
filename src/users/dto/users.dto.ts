@@ -26,6 +26,9 @@ export class CreateUserDto {
   email: string;
 
   @IsString()
+  password: string;
+
+  @IsString()
   @ApiProperty()
   @IsNotEmpty()
   city: string;

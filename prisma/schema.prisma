@@ -8,14 +8,15 @@ datasource db {
 }
 
 model User {
-  id     Int      @id @default(autoincrement()) //String default 'uuid'
-  name   String
-  age    Int?
-  email  String   @unique
-  city   String
-  avatar String?
-  status Boolean? @default(false)
-  pets   Pet[]
+  id       Int      @id @default(autoincrement()) //String default 'uuid'
+  name     String
+  age      Int?
+  email    String   @unique
+  city     String
+  avatar   String?
+  password String?
+  status   Boolean? @default(false)
+  pets     Pet[]
 }
 
 model Pet {

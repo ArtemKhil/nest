@@ -6,9 +6,10 @@ import { UsersService } from './users/users.service';
 import { UsersModule } from './users/users.module';
 import { PetsModule } from './pets/pets.module';
 import { PrismaService } from './core/orm/prisma.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [UsersModule, PetsModule],
+  imports: [UsersModule, PetsModule, AuthModule],
   controllers: [AppController, UsersController],
   providers: [AppService, UsersService, PrismaService],
 })
